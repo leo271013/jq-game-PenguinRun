@@ -1,693 +1,695 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
-    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
-    <title>南極冒險</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+  <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+  <title>南極冒險</title>
 
-      body {
-        background: url(./resource/body.jpg);
-      }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-      .home {
-        margin: auto;
-        width: 419px;
-        height: 120px;
-        background: url(./resource/home.jpg);
-      }
+    body {
+      background: url(./resource/body.jpg);
+    }
 
-      #box {
-        height: 750px;
-        width: 800px;
-        border: 5px ridge rgb(206, 206, 206);
-        font-size: 0;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        background: url(./resource/bg.gif);
-        overflow: hidden;
-      }
+    .home {
+      margin: auto;
+      width: 419px;
+      height: 120px;
+      background: url(./resource/home.jpg);
+    }
 
-      #xxx {
-        height: 99vh;
-        width: 1400px;
-        font-size: 0;
-        position: absolute;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        z-index: 99;
-      }
+    #box {
+      height: 750px;
+      width: 800px;
+      border: 5px ridge rgb(206, 206, 206);
+      font-size: 0;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      background: url(./resource/bg.gif);
+      overflow: hidden;
+    }
 
-      #omg {
-        height: 750px;
-        width: 800px;
-        font-size: 0;
-        position: absolute;
-        background: url(./resource/omg.gif);
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-      }
+    #xxx {
+      height: 99vh;
+      width: 1400px;
+      font-size: 0;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 99;
+    }
 
-      #end {
-        height: 750px;
-        width: 800px;
-        font-size: 0;
-        position: absolute;
-        background: url(./resource/bend.gif);
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        display: none;
-      }
+    #omg {
+      height: 750px;
+      width: 800px;
+      font-size: 0;
+      position: absolute;
+      background: url(./resource/omg.gif);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+    }
 
-      #aend {
-        height: 750px;
-        width: 800px;
-        font-size: 0;
-        position: absolute;
-        background: url(./resource/end.jpg);
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 99;
-        display: none;
-      }
+    #end {
+      height: 750px;
+      width: 800px;
+      font-size: 0;
+      position: absolute;
+      background: url(./resource/bend.gif);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      display: none;
+    }
 
-      .carbar {
-        width: 800px;
-        height: 120px;
-        position: absolute;
-        transform: translateX(-50%);
-        left: 400px;
-        top: 210px;
-        z-index: 10;
-      }
+    #aend {
+      height: 750px;
+      width: 800px;
+      font-size: 0;
+      position: absolute;
+      background: url(./resource/end.jpg);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99;
+      display: none;
+    }
 
-      .car {
-        width: 12px;
-        height: 7px;
-        position: absolute;
-        transform: translateX(-50%);
-        left: 400px;
-        z-index: 20;
-        background: url(./resource/oh.png) no-repeat center/cover;
-      }
+    .carbar {
+      width: 800px;
+      height: 120px;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 400px;
+      top: 210px;
+      z-index: 10;
+    }
 
-      .carbar2 {
-        width: 800px;
-        height: 120px;
-        position: absolute;
-        transform: translateX(-50%);
-        left: 400px;
-        top: 200px;
-        z-index: 10;
-      }
+    .car {
+      width: 12px;
+      height: 7px;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 400px;
+      z-index: 20;
+      background: url(./resource/oh.png) no-repeat center/cover;
+    }
 
-      .car2 {
-        width: 12px;
-        height: 7px;
-        position: absolute;
-        transform: translateX(-50%);
-        left: 400px;
-        z-index: 20;
-        background: url(./resource/oh.png) no-repeat center/cover;
-      }
+    .carbar2 {
+      width: 800px;
+      height: 120px;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 400px;
+      top: 200px;
+      z-index: 10;
+    }
 
-      #bo {
-        width: 100px;
-        height: 100px;
-        background: url(./resource/pg.gif) no-repeat center/cover;
-        position: absolute;
-        transform: translateX(-50%);
+    .car2 {
+      width: 12px;
+      height: 7px;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 400px;
+      z-index: 20;
+      background: url(./resource/oh.png) no-repeat center/cover;
+    }
+
+    #bo {
+      width: 100px;
+      height: 100px;
+      background: url(./resource/pg.gif) no-repeat center/cover;
+      position: absolute;
+      transform: translateX(-50%);
+      bottom: 10px;
+      left: 400px;
+      z-index: 30;
+    }
+
+    #sbtn {
+      width: 200px;
+      height: 60px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 101;
+      top: 480px;
+      font-size: 2rem;
+    }
+
+    #view {
+      position: absolute;
+      z-index: 90;
+      top: 20px;
+      color: white;
+      font-size: 1.5rem;
+      left: 20px;
+    }
+
+    #again {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 101;
+      top: 750px;
+      display: none;
+    }
+
+    #sc {
+      position: absolute;
+      z-index: 90;
+      top: 350px;
+      color: white;
+      font-size: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .jumped {
+      filter: drop-shadow(5px 5px 50px rgb(10, 21, 179));
+    }
+
+    .jump {
+      animation-name: jump;
+      animation-duration: 1s;
+    }
+
+    .jumph {
+      animation-name: jumph;
+      animation-duration: 1s;
+    }
+
+    @keyframes jump {
+      from {
         bottom: 10px;
-        left: 400px;
-        z-index: 30;
       }
 
-      #sbtn {
-        width: 200px;
-        height: 60px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 101;
-        top: 480px;
-        font-size: 2rem;
+      50% {
+        bottom: 40px;
       }
 
-      #view {
-        position: absolute;
-        z-index: 90;
-        top: 20px;
-        color: white;
-        font-size: 1.5rem;
-        left: 20px;
+      to {
+        bottom: 10px;
+      }
+    }
+
+    @keyframes jumph {
+      from {
+        bottom: 10px;
       }
 
-      #again {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 101;
-        top: 750px;
-        display: none;
+      50% {
+        bottom: 40px;
       }
 
-      #sc {
-        position: absolute;
-        z-index: 90;
-        top: 350px;
-        color: white;
-        font-size: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
+      to {
+        bottom: 10px;
+      }
+    }
+
+    #hplayer {
+      position: absolute;
+      left: 550px;
+      top: 300px;
+      text-align: center;
+      z-index: 200;
+      font-size: 1.5rem;
+      line-height: 3rem;
+    }
+
+    #hs {
+      position: absolute;
+      left: 600px;
+      top: 400px;
+      text-align: center;
+      z-index: 200;
+      font-size: 2rem;
+      color: rgb(204, 0, 0);
+    }
+
+    #highname {
+      font-size: 2rem;
+      color: rgb(246, 160, 0);
+    }
+
+    #enter {
+      display: none;
+      position: absolute;
+      font-size: 0.8rem;
+      top: 550px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #stext {
+      display: none;
+      width: 170px;
+      position: absolute;
+      font-size: 1rem;
+      top: 500px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    #newb {
+      display: none;
+      width: 170px;
+      position: absolute;
+      font-size: 1rem;
+      top: 440px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: rgb(212, 0, 0);
+      animation-name: flash;
+      animation-duration: 0.5s;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes flash {
+      from {
+        filter: grayscale(0%);
       }
 
-      .jumped {
-        filter: drop-shadow(5px 5px 50px rgb(10, 21, 179));
+      to {
+        filter: grayscale(30%);
       }
+    }
 
-      .jump {
-        animation-name: jump;
-        animation-duration: 1s;
-      }
+    .ob1 {
+      width: 42px;
+      height: 31px;
+      position: absolute;
+      transform: translateX(-50%);
+      z-index: 300;
+      background: url(./resource/sd.gif) no-repeat center/cover;
+      top: 120px;
+      left: 130px;
+    }
+  </style>
+</head>
 
-      .jumph {
-        animation-name: jumph;
-        animation-duration: 1s;
-      }
+<body>
+  <div class="home"></div>
+  <div id="omg">
+    <span id="hplayer">TOP SCORE:<br /><span id="highname"></span></span>
+    <span id="hs"><span id="highscore">0</span>m</span>
+  </div>
+  <div id="end">
+    <span id="sc"></span>
+    <span id="newb">NEW RECORD!</span>
+    <input type="text" name="stext" id="stext" placeholder="your name" maxlength="7" />
+    <input type="button" value="ENTER" class="nes-btn" id="enter" />
+  </div>
+  <div id="aend"></div>
+  <div id="xxx"></div>
+  <div id="box">
+    <span id="view"> </span>
+    <div id="bo"></div>
+    <div class="ob1"></div>
+    <div class="ob1" style="left: 700px; top: 140px"></div>
+  </div>
+  <button type="button" class="nes-btn is-primary" id="sbtn">START</button>
+  <button type="button" class="nes-btn is-warning" id="again">AGAIN</button>
 
-      @keyframes jump {
-        from {
-          bottom: 10px;
-        }
+  <script src="./resource/jquery-3.6.0.min.js"></script>
+  <script>
+    const box = document.getElementById('box')
+    const bo = document.getElementById('bo')
+    const sbtn = document.getElementById('sbtn')
+    const omg = document.getElementById('omg')
+    const end = document.getElementById('end')
+    const view = document.getElementById('view')
+    const again = document.getElementById('again')
+    const hs = document.getElementById('hs')
+    const hplayer = document.getElementById('hplayer')
+    const stext = document.getElementById('stext')
+    const enter = document.getElementById('enter')
+    const newb = document.getElementById('newb')
 
-        50% {
-          bottom: 40px;
-        }
+    const highnameText = document.getElementById('highname')
+    const highscoreText = document.getElementById('highscore')
+    const high = { score: 0, name: 'Anonymous' }
 
-        to {
-          bottom: 10px;
-        }
-      }
+    const storage = JSON.parse(localStorage.getItem('pgrun'))
 
-      @keyframes jumph {
-        from {
-          bottom: 10px;
-        }
+    if (storage) {
+      high.name = storage.name
+      high.score = storage.score
+      highnameText.innerText = high.name
+      highscoreText.innerText = high.score
+    }
 
-        50% {
-          bottom: 40px;
-        }
+    let scores = 0
+    let escore = 0
+    let cool = `Distance:`
+    let cd = 1
+    let hp = 2
 
-        to {
-          bottom: 10px;
-        }
-      }
+    const game = () => {
+      let tops = 210
+      let rleft = 400
+      let bw = 12
+      let bh = 7
+      let we = 0
+      let randon = 0
 
-      #hplayer {
-        position: absolute;
-        left: 550px;
-        top: 300px;
-        text-align: center;
-        z-index: 200;
-        font-size: 1.5rem;
-        line-height: 3rem;
-      }
+      const scoret = setInterval(() => {
+        scores++
+        $('#view').text(`Distance:${scores}m`)
+        escore = `${scores}m`
+      }, 100)
 
-      #hs {
-        position: absolute;
-        left: 600px;
-        top: 400px;
-        text-align: center;
-        z-index: 200;
-        font-size: 2rem;
-        color: rgb(204, 0, 0);
-      }
-
-      #highname {
-        font-size: 2rem;
-        color: rgb(246, 160, 0);
-      }
-
-      #enter {
-        display: none;
-        position: absolute;
-        font-size: 0.8rem;
-        top: 550px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      #stext {
-        display: none;
-        width: 170px;
-        position: absolute;
-        font-size: 1rem;
-        top: 500px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-      }
-
-      #newb {
-        display: none;
-        width: 170px;
-        position: absolute;
-        font-size: 1rem;
-        top: 440px;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        color: rgb(212, 0, 0);
-        animation-name: flash;
-        animation-duration: 0.5s;
-        animation-iteration-count: infinite;
-      }
-
-      @keyframes flash {
-        from {
-          filter: grayscale(0%);
-        }
-
-        to {
-          filter: grayscale(30%);
-        }
-      }
-
-      .ob1 {
-        width: 42px;
-        height: 31px;
-        position: absolute;
-        transform: translateX(-50%);
-        z-index: 300;
-        background: url(./resource/sd.gif) no-repeat center/cover;
-        top: 120px;
-        left: 130px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="home"></div>
-    <div id="omg">
-      <span id="hplayer">TOP SCORE:<br /><span id="highname"></span></span>
-      <span id="hs"><span id="highscore">0</span>m</span>
-    </div>
-    <div id="end">
-      <span id="sc"></span>
-      <span id="newb">NEW RECORD!</span>
-      <input type="text" name="stext" id="stext" placeholder="your name" maxlength="7" />
-      <input type="button" value="ENTER" class="nes-btn" id="enter" />
-    </div>
-    <div id="aend"></div>
-    <div id="xxx"></div>
-    <div id="box">
-      <span id="view"> </span>
-      <div id="bo"></div>
-      <div class="ob1"></div>
-      <div class="ob1" style="left: 700px; top: 140px"></div>
-    </div>
-    <button type="button" class="nes-btn is-primary" id="sbtn">START</button>
-    <button type="button" class="nes-btn is-warning" id="again">AGAIN</button>
-
-    <script src="./resource/jquery-3.6.0.min.js"></script>
-    <script>
-      const box = document.getElementById('box')
-      const bo = document.getElementById('bo')
-      const sbtn = document.getElementById('sbtn')
-      const omg = document.getElementById('omg')
-      const end = document.getElementById('end')
-      const view = document.getElementById('view')
-      const again = document.getElementById('again')
-      const hs = document.getElementById('hs')
-      const hplayer = document.getElementById('hplayer')
-      const stext = document.getElementById('stext')
-      const enter = document.getElementById('enter')
-      const newb = document.getElementById('newb')
-
-      const highnameText = document.getElementById('highname')
-      const highscoreText = document.getElementById('highscore')
-      const high = { score: 0, name: 'Anonymous' }
-
-      const storage = JSON.parse(localStorage.getItem('pgrun'))
-
-      if (storage) {
-        high.name = storage.name
-        high.score = storage.score
-        highnameText.innerText = high.name
-        highscoreText.innerText = high.score
-      }
-
-      let scores = 0
-      let escore = 0
-      let cool = `Distance:`
-      let cd = 1
-      let hp = 2
-
-      const game = () => {
-        let tops = 210
-        let rleft = 400
-        let bw = 12
-        let bh = 7
-        let we = 0
-        let randon = 0
-
-        const scoret = setInterval(() => {
-          scores++
-          $('#view').text(`Distance:${scores}m`)
-          escore = `${scores}m`
-        }, 100)
-
-        const move = (carbar) => {
-          tops += 18
-          if (
-            750 > tops &&
-            tops > 720 &&
-            $('#bo').offset().left - 285 - 100 < $('#car10').offset().left - 300 &&
-            $('#bo').offset().left - 285 + 70 > $('#car10').offset().left - 300 &&
-            $('#bo').hasClass('jump') === false &&
-            $('#bo').hasClass('jumph') === false
-          ) {
-            if (hp === 1) {
-              hp--
-              clearInterval(scoret)
-              $('#end').css('display', ' block')
-              setTimeout(() => {
-                $('#aend').css('display', ' block')
-              }, 1000)
-              setTimeout(() => {
-                $('#end').css('background', ' url(./resource/end.gif)no-repeat center/cover')
-                for (let i = 0; i <= cool.length; i++) {
-                  setTimeout(() => {
-                    $('#sc').html(cool.substr(0, i + 1))
-                  }, 100 * i)
-                }
-                setTimeout(() => {
-                  $('#sc').html(`Distance:<br>`)
-                  for (let i = 0; i <= escore.length; i++) {
-                    setTimeout(() => {
-                      $('#sc').html(`Distance:<br>` + escore.substr(0, i + 1))
-                    }, 100 * i)
-                  }
-                }, 1000)
-              }, 1250)
-              setTimeout(() => {
-                if (scores > high.score) {
-                  $('#enter').css('display', ' block')
-                  $('#stext').css('display', ' block')
-                  $('#newb').css('display', ' block')
-                  enter.onclick = () => {
-                    high.name = $('#stext').val()
-                    high.score = scores
-                    localStorage.setItem('pgrun', JSON.stringify(high))
-                    $('#enter').css('display', ' none')
-                    $('#stext').css('display', ' none')
-                  }
-                }
-                $('#again').css('display', ' block')
-              }, 2800)
-            } else {
-              hp--
-              $('#bo').css('background', ' url(./resource/fail.png)no-repeat center/cover')
-              setTimeout(() => {
-                $('#bo').css('background', ' url(./resource/hurt.gif)no-repeat center/cover')
-              }, 250)
-            }
-            tops = 800
-          }
-          if (tops < 750) {
-            carbar.stop().animate(
-              {
-                top: `${tops}px`,
-              },
-              10,
-              function () {
-                move(carbar)
-              }
-            )
-          } else {
-            $('.carbar').remove()
-            $('.car').remove()
-            tops = 190
-            rleft = 400
-            bw = 8.5
-            bh = 5
-            timer()
-          }
-        }
-        const move2 = (car) => {
-          rleft += randon
-          bw += 7
-          bh += 1
-          $('.car')
-            .stop()
-            .animate(
-              {
-                left: `${rleft}px`,
-                width: `${bw}px`,
-                height: `${bh}px`,
-              },
-              25,
-              function () {
-                move2(car)
-              }
-            )
-        }
-
-        const timer = () => {
-          let nu = 0
-          if (Math.random() > 0.5) {
-            nu = 1
-          } else {
-            nu -= 1
-          }
-          randon = nu * Math.floor(Math.random() * 12 + 2)
-          const carbar = $(`<div class="carbar"><div class="car" id="car10"></div></div>`)
-          const car = document.getElementsByClassName('car')
-          $('#box').append(carbar)
-          move(carbar)
-          move2(car)
-        }
-
-        setTimeout(() => {
-          timer()
-        }, 1300)
-
-        let tops2 = 210
-        let rleft2 = 400
-        let bw2 = 12
-        let bh2 = 7
-        let we2 = 0
-        let randon2 = 0
-        let score = 0
-
-        const move3 = (carbar2) => {
-          tops2 += 18
-          if (
-            750 > tops2 &&
-            tops2 > 720 &&
-            $('#bo').offset().left - 285 - 100 < $('#car20').offset().left - 300 &&
-            $('#bo').offset().left - 285 + 70 > $('#car20').offset().left - 300 &&
-            $('#bo').hasClass('jump') === false &&
-            $('#bo').hasClass('jumph') === false
-          ) {
-            if (hp === 1) {
-              hp--
-              clearInterval(scoret)
-              $('#end').css('display', ' block')
-              setTimeout(() => {
-                $('#aend').css('display', ' block')
-              }, 1000)
-              setTimeout(() => {
-                $('#end').css('background', ' url(./resource/end.gif)no-repeat center/cover')
-                for (let i = 0; i <= cool.length; i++) {
-                  setTimeout(() => {
-                    $('#sc').html(cool.substr(0, i + 1))
-                  }, 100 * i)
-                }
-                setTimeout(() => {
-                  $('#sc').html(`Distance:<br>`)
-                  for (let i = 0; i <= escore.length; i++) {
-                    setTimeout(() => {
-                      $('#sc').html(`Distance:<br>` + escore.substr(0, i + 1))
-                    }, 100 * i)
-                  }
-                }, 1000)
-              }, 1250)
-              setTimeout(() => {
-                if (scores > high.score) {
-                  $('#enter').css('display', ' block')
-                  $('#stext').css('display', ' block')
-                  $('#newb').css('display', ' block')
-                  enter.onclick = () => {
-                    high.name = $('#stext').val()
-                    high.score = scores
-                    localStorage.setItem('pgrun', JSON.stringify(high))
-                    $('#enter').css('display', ' none')
-                    $('#stext').css('display', ' none')
-                  }
-                }
-                $('#again').css('display', ' block')
-              }, 2800)
-            } else {
-              hp--
-              $('#bo').css('background', ' url(./resource/fail.png)no-repeat center/cover')
-              setTimeout(() => {
-                $('#bo').css('background', ' url(./resource/hurt.gif)no-repeat center/cover')
-              }, 250)
-            }
-            tops2 = 800
-          }
-          if (tops2 < 750) {
-            carbar2.stop().animate(
-              {
-                top: `${tops2}px`,
-              },
-              10,
-              function () {
-                move3(carbar2)
-              }
-            )
-          } else {
-            $('.carbar2').remove()
-            $('.car2').remove()
-            tops2 = 190
-            rleft2 = 400
-            bw2 = 8.5
-            bh2 = 5
-            timer4()
-          }
-        }
-        const move4 = (car2) => {
-          rleft2 += randon2
-          bw2 += 7
-          bh2 += 1
-          $('.car2')
-            .stop()
-            .animate(
-              {
-                left: `${rleft2}px`,
-                width: `${bw2}px`,
-                height: `${bh2}px`,
-              },
-              25,
-              function () {
-                move4(car2)
-              }
-            )
-        }
-
-        const timer4 = () => {
-          let nu2 = 0
-          if (Math.random() > 0.5) {
-            nu2 = 1
-          } else {
-            nu2 -= 1
-          }
-          randon2 = nu2 * Math.floor(Math.random() * 12 + 2)
-          const carbar2 = $(`<div class="carbar2"><div class="car2" id="car20"></div></div>`)
-          const car2 = document.getElementsByClassName('car2')
-          $('#box').append(carbar2)
-          move3(carbar2)
-          move4(car2)
-        }
-
-        setTimeout(() => {
-          timer4()
-        }, 1000)
-
-        // 生成旁邊景色
-
-        // 生成人
-      }
-
-      xxx.onclick = () => {
-        if (cd === 1) {
-          cd = 0
-          setTimeout(() => {
-            $('#bo').addClass('jumped')
-            $('#bo').removeClass('jumph')
-            $('#bo').removeClass('jump')
-            if (hp === 1) {
-              $('#bo').css('background', ` url(./resource/hurt.gif)no-repeat center/cover`)
-            } else {
-              $('#bo').css('background', ` url(./resource/pg.gif)no-repeat center/cover`)
-            }
-          }, 1000)
-          setTimeout(() => {
-            $('#bo').removeClass('jumped')
-            cd = 1
-          }, 4000)
+      const move = (carbar) => {
+        tops += 18
+        if (
+          750 > tops &&
+          tops > 720 &&
+          $('#bo').offset().left - 285 - 100 < $('#car10').offset().left - 300 &&
+          $('#bo').offset().left - 285 + 70 > $('#car10').offset().left - 300 &&
+          $('#bo').hasClass('jump') === false &&
+          $('#bo').hasClass('jumph') === false
+        ) {
           if (hp === 1) {
-            $('#bo').addClass('jumph')
-            $('#bo').css('background', ` url(./resource/jumph.gif)no-repeat center/cover`)
+            hp--
+            clearInterval(scoret)
+            $('#end').css('display', ' block')
+            setTimeout(() => {
+              $('#aend').css('display', ' block')
+            }, 1000)
+            setTimeout(() => {
+              $('#end').css('background', ' url(./resource/end.gif)no-repeat center/cover')
+              for (let i = 0; i <= cool.length; i++) {
+                setTimeout(() => {
+                  $('#sc').html(cool.substr(0, i + 1))
+                }, 100 * i)
+              }
+              setTimeout(() => {
+                $('#sc').html(`Distance:<br>`)
+                for (let i = 0; i <= escore.length; i++) {
+                  setTimeout(() => {
+                    $('#sc').html(`Distance:<br>` + escore.substr(0, i + 1))
+                  }, 100 * i)
+                }
+              }, 1000)
+            }, 1250)
+            setTimeout(() => {
+              if (scores > high.score) {
+                $('#enter').css('display', ' block')
+                $('#stext').css('display', ' block')
+                $('#newb').css('display', ' block')
+                enter.onclick = () => {
+                  high.name = $('#stext').val()
+                  high.score = scores
+                  localStorage.setItem('pgrun', JSON.stringify(high))
+                  $('#enter').css('display', ' none')
+                  $('#stext').css('display', ' none')
+                }
+              }
+              $('#again').css('display', ' block')
+            }, 2800)
           } else {
-            $('#bo').addClass('jump')
-            $('#bo').css('background', ` url(./resource/jump.gif)no-repeat center/cover`)
+            hp--
+            $('#bo').css('background', ' url(./resource/fail.png)no-repeat center/cover')
+            setTimeout(() => {
+              $('#bo').css('background', ' url(./resource/hurt.gif)no-repeat center/cover')
+            }, 250)
           }
+          tops = 800
+        }
+        if (tops < 750) {
+          carbar.stop().animate(
+            {
+              top: `${tops}px`,
+            },
+            10,
+            function () {
+              move(carbar)
+            }
+          )
+        } else {
+          $('.carbar').remove()
+          $('.car').remove()
+          tops = 190
+          rleft = 400
+          bw = 8.5
+          bh = 5
+          timer()
         }
       }
-
-      xxx.onmousemove = (e) => {
-        bo.style.left = `${e.offsetX - 300}px`
-        we = e.offsetX - 300
-        we2 = e.offsetX - 300
-
-        if (300 < e.offsetX < 1100 && 119 < e.offsetY < 879) {
-          xxx.style.cursor = `none`
-        }
-        if (e.offsetX < 500) {
-          bo.style.left = `150px`
-          we = 150
-          we2 = 150
-        }
-        if (e.offsetX < 300) {
-          xxx.style.cursor = `default`
-        }
-        if (e.offsetX > 900) {
-          bo.style.left = `650px`
-          we = 650
-          we2 = 650
-        }
-        if (e.offsetX > 1100) {
-          xxx.style.cursor = `default`
-        }
-
-        if (119 > e.offsetY || e.offsetY > 879) {
-          xxx.style.cursor = `default`
-        }
+      const move2 = (car) => {
+        rleft += randon
+        bw += 7
+        bh += 1
+        $('.car')
+          .stop()
+          .animate(
+            {
+              left: `${rleft}px`,
+              width: `${bw}px`,
+              height: `${bh}px`,
+            },
+            25,
+            function () {
+              move2(car)
+            }
+          )
       }
 
-      $('#sbtn').on('click', function () {
-        $('#omg').css('background', ' url(./resource/start.gif)')
-        $('#hs').css('display', ' none')
-        $('#hplayer').css('display', ' none')
-        $('#sbtn').fadeOut(1300, function () {
-          $('#omg').css('display', ' none')
-          game()
-        })
+      const timer = () => {
+        let nu = 0
+        if (Math.random() > 0.5) {
+          nu = 1
+        } else {
+          nu -= 1
+        }
+        randon = nu * Math.floor(Math.random() * 12 + 2)
+        const carbar = $(`<div class="carbar"><div class="car" id="car10"></div></div>`)
+        const car = document.getElementsByClassName('car')
+        $('#box').append(carbar)
+        move(carbar)
+        move2(car)
+      }
+
+      setTimeout(() => {
+        timer()
+      }, 1300)
+
+      let tops2 = 210
+      let rleft2 = 400
+      let bw2 = 12
+      let bh2 = 7
+      let we2 = 0
+      let randon2 = 0
+      let score = 0
+
+      const move3 = (carbar2) => {
+        tops2 += 18
+        if (
+          750 > tops2 &&
+          tops2 > 720 &&
+          $('#bo').offset().left - 285 - 100 < $('#car20').offset().left - 300 &&
+          $('#bo').offset().left - 285 + 70 > $('#car20').offset().left - 300 &&
+          $('#bo').hasClass('jump') === false &&
+          $('#bo').hasClass('jumph') === false
+        ) {
+          if (hp === 1) {
+            hp--
+            clearInterval(scoret)
+            $('#end').css('display', ' block')
+            setTimeout(() => {
+              $('#aend').css('display', ' block')
+            }, 1000)
+            setTimeout(() => {
+              $('#end').css('background', ' url(./resource/end.gif)no-repeat center/cover')
+              for (let i = 0; i <= cool.length; i++) {
+                setTimeout(() => {
+                  $('#sc').html(cool.substr(0, i + 1))
+                }, 100 * i)
+              }
+              setTimeout(() => {
+                $('#sc').html(`Distance:<br>`)
+                for (let i = 0; i <= escore.length; i++) {
+                  setTimeout(() => {
+                    $('#sc').html(`Distance:<br>` + escore.substr(0, i + 1))
+                  }, 100 * i)
+                }
+              }, 1000)
+            }, 1250)
+            setTimeout(() => {
+              if (scores > high.score) {
+                $('#enter').css('display', ' block')
+                $('#stext').css('display', ' block')
+                $('#newb').css('display', ' block')
+                enter.onclick = () => {
+                  high.name = $('#stext').val()
+                  high.score = scores
+                  localStorage.setItem('pgrun', JSON.stringify(high))
+                  $('#enter').css('display', ' none')
+                  $('#stext').css('display', ' none')
+                }
+              }
+              $('#again').css('display', ' block')
+            }, 2800)
+          } else {
+            hp--
+            $('#bo').css('background', ' url(./resource/fail.png)no-repeat center/cover')
+            setTimeout(() => {
+              $('#bo').css('background', ' url(./resource/hurt.gif)no-repeat center/cover')
+            }, 250)
+          }
+          tops2 = 800
+        }
+        if (tops2 < 750) {
+          carbar2.stop().animate(
+            {
+              top: `${tops2}px`,
+            },
+            10,
+            function () {
+              move3(carbar2)
+            }
+          )
+        } else {
+          $('.carbar2').remove()
+          $('.car2').remove()
+          tops2 = 190
+          rleft2 = 400
+          bw2 = 8.5
+          bh2 = 5
+          timer4()
+        }
+      }
+      const move4 = (car2) => {
+        rleft2 += randon2
+        bw2 += 7
+        bh2 += 1
+        $('.car2')
+          .stop()
+          .animate(
+            {
+              left: `${rleft2}px`,
+              width: `${bw2}px`,
+              height: `${bh2}px`,
+            },
+            25,
+            function () {
+              move4(car2)
+            }
+          )
+      }
+
+      const timer4 = () => {
+        let nu2 = 0
+        if (Math.random() > 0.5) {
+          nu2 = 1
+        } else {
+          nu2 -= 1
+        }
+        randon2 = nu2 * Math.floor(Math.random() * 12 + 2)
+        const carbar2 = $(`<div class="carbar2"><div class="car2" id="car20"></div></div>`)
+        const car2 = document.getElementsByClassName('car2')
+        $('#box').append(carbar2)
+        move3(carbar2)
+        move4(car2)
+      }
+
+      setTimeout(() => {
+        timer4()
+      }, 1000)
+
+      // 生成旁邊景色
+
+      // 生成人
+    }
+
+    xxx.onclick = () => {
+      if (cd === 1) {
+        cd = 0
+        setTimeout(() => {
+          $('#bo').addClass('jumped')
+          $('#bo').removeClass('jumph')
+          $('#bo').removeClass('jump')
+          if (hp === 1) {
+            $('#bo').css('background', ` url(./resource/hurt.gif)no-repeat center/cover`)
+          } else {
+            $('#bo').css('background', ` url(./resource/pg.gif)no-repeat center/cover`)
+          }
+        }, 1000)
+        setTimeout(() => {
+          $('#bo').removeClass('jumped')
+          cd = 1
+        }, 4000)
+        if (hp === 1) {
+          $('#bo').addClass('jumph')
+          $('#bo').css('background', ` url(./resource/jumph.gif)no-repeat center/cover`)
+        } else {
+          $('#bo').addClass('jump')
+          $('#bo').css('background', ` url(./resource/jump.gif)no-repeat center/cover`)
+        }
+      }
+    }
+
+    xxx.onmousemove = (e) => {
+      bo.style.left = `${e.offsetX - 300}px`
+      we = e.offsetX - 300
+      we2 = e.offsetX - 300
+
+      if (300 < e.offsetX < 1100 && 119 < e.offsetY < 879) {
+        xxx.style.cursor = `none`
+      }
+      if (e.offsetX < 500) {
+        bo.style.left = `150px`
+        we = 150
+        we2 = 150
+      }
+      if (e.offsetX < 300) {
+        xxx.style.cursor = `default`
+      }
+      if (e.offsetX > 900) {
+        bo.style.left = `650px`
+        we = 650
+        we2 = 650
+      }
+      if (e.offsetX > 1100) {
+        xxx.style.cursor = `default`
+      }
+
+      if (119 > e.offsetY || e.offsetY > 879) {
+        xxx.style.cursor = `default`
+      }
+    }
+
+    $('#sbtn').on('click', function () {
+      $('#omg').css('background', ' url(./resource/start.gif)')
+      $('#hs').css('display', ' none')
+      $('#hplayer').css('display', ' none')
+      $('#sbtn').fadeOut(1300, function () {
+        $('#omg').css('display', ' none')
+        game()
       })
+    })
 
-      $('#again').on('click', function () {
-        location.reload()
-      })
+    $('#again').on('click', function () {
+      location.reload()
+    })
 
-      window.onload = function () {
-        alert('首次遊玩容易因載入不完全造成破圖，請重新整理頁面即可正常顯示')
-      }
-    </script>
-  </body>
+      // window.onload = function () {
+      //   alert('首次遊玩容易因載入不完全造成破圖，請重新整理頁面即可正常顯示')
+      // }
+  </script>
+</body>
+
 </html>
